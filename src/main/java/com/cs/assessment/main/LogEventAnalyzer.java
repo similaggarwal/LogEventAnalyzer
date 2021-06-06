@@ -10,7 +10,6 @@ public class LogEventAnalyzer {
 
     public static void main(String args[]) {
 
-
         LogAnalyzer logAnalyzer = new LogAnalyzer();
         LogAnalyzerDao logAnalyzerDao = new LogAnalyzerDao("src/main/resources/DB/EventDB");
 
@@ -20,6 +19,7 @@ public class LogEventAnalyzer {
             System.out.println("Enter the complete log file path or Q/q to quit");
             String s = sc.next();
             if (s.equalsIgnoreCase("Q")) {
+                logAnalyzerDao.closeConnection();
                 System.exit(0);
             } else {
                 List<DBLog> dbLogs = logAnalyzer.analyzeLogs(s);

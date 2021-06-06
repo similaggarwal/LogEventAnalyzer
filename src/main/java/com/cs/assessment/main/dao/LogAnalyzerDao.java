@@ -31,11 +31,9 @@ public class LogAnalyzerDao {
             Statement statement = conn.createStatement();
             createEventAnalysisTable(statement);
             for(DBLog dbLog : dbLogList) {
-                System.out.println("INSERT INTO EventAnalysis VALUES('"+dbLog.getId()+"', "+dbLog.getDuration()+" , "+dbLog.getType()+" , "+dbLog.getHost()+" , '"+dbLog.isAlert()+"')");
                 statement.executeUpdate("INSERT INTO EventAnalysis VALUES('"+dbLog.getId()+"', "+dbLog.getDuration()+" , '"+dbLog.getType()+"' , '"+dbLog.getHost()+"' , '"+dbLog.isAlert()+"')");
             }
             LOGGER.info("insert data into TABLE:EventAnalysis count {}",dbLogList.size());
-            conn.close();
 
         } catch (Exception e) {
             LOGGER.error("Error Inserting Data in table", e);
@@ -43,10 +41,16 @@ public class LogAnalyzerDao {
         }
     }
 
-    private void createEventAnalysisTable(Statement statement) throws SQLException {
+    public void closeConnection(){
         try {
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
-
+    private void createEventAnalysisTable(Statement statement) {
+        try {
             statement.executeUpdate("create table IF NOT EXISTS EventAnalysis(EVENT_ID VARCHAR(50)," +
                     "DURATION INTEGER," +
                     "TYPE VARCHAR(100)," +
@@ -57,7 +61,6 @@ public class LogAnalyzerDao {
 
         } catch (Exception e) {
             LOGGER.error("Error creating Table EventAnalysis ", e);
-            e.printStackTrace();
         }
     }
 
