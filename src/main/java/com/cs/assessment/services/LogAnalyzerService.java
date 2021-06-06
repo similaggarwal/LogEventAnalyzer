@@ -1,4 +1,4 @@
-package com.cs.assessment.main;
+package com.cs.assessment.services;
 
 import com.cs.assessment.model.DBLog;
 import com.cs.assessment.model.Event;
@@ -8,11 +8,11 @@ import org.slf4j.LoggerFactory;
 import java.io.FileInputStream;
 import java.util.*;
 
-import static com.cs.assessment.main.helper.ObjectMapperUtil.OBJECT_MAPPER;
+import static com.cs.assessment.helper.ObjectMapperUtil.OBJECT_MAPPER;
 
-public class LogAnalyzer {
+public class LogAnalyzerService {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(LogAnalyzer.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(LogAnalyzerService.class);
 
     public List<DBLog> analyzeLogs(String logFilePath) {
 

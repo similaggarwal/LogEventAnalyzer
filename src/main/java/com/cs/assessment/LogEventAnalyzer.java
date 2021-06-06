@@ -1,7 +1,8 @@
-package com.cs.assessment.main;
+package com.cs.assessment;
 
-import com.cs.assessment.main.dao.LogAnalyzerDao;
+import com.cs.assessment.dao.LogAnalyzerDao;
 import com.cs.assessment.model.DBLog;
+import com.cs.assessment.services.LogAnalyzerService;
 
 import java.util.List;
 import java.util.Scanner;
@@ -10,7 +11,7 @@ public class LogEventAnalyzer {
 
     public static void main(String args[]) {
 
-        LogAnalyzer logAnalyzer = new LogAnalyzer();
+        LogAnalyzerService logAnalyzerService = new LogAnalyzerService();
         LogAnalyzerDao logAnalyzerDao = new LogAnalyzerDao("src/main/resources/DB/EventDB");
 
         Scanner sc = new Scanner(System.in);
@@ -22,7 +23,7 @@ public class LogEventAnalyzer {
                 logAnalyzerDao.closeConnection();
                 System.exit(0);
             } else {
-                List<DBLog> dbLogs = logAnalyzer.analyzeLogs(s);
+                List<DBLog> dbLogs = logAnalyzerService.analyzeLogs(s);
                 logAnalyzerDao.writeLogAnalysisToDB(dbLogs);
                 System.out.println("Log Events saved to DB");
             }

@@ -1,7 +1,5 @@
-package com.cs.assessment.main.model;
+package com.cs.assessment.model;
 
-import com.cs.assessment.model.Event;
-import com.cs.assessment.model.EventState;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.cs.assessment.main.dao;
+package com.cs.assessment.dao;
 
 import com.cs.assessment.model.DBLog;
 import org.slf4j.Logger;

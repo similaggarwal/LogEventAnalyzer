@@ -1,4 +1,4 @@
-package com.cs.assessment.main.helper;
+package com.cs.assessment.helper;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

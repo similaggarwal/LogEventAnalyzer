@@ -1,5 +1,6 @@
-package com.cs.assessment.main;
+package com.cs.assessment.services;
 
+import com.cs.assessment.services.LogAnalyzerService;
 import com.cs.assessment.model.DBLog;
 import org.junit.jupiter.api.Test;
 
@@ -8,9 +9,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class LogAnalyzerTest {
+class LogAnalyzerServiceTest {
 
-    LogAnalyzer unitUnderTest = new LogAnalyzer();
+    LogAnalyzerService unitUnderTest = new LogAnalyzerService();
 
     @Test
     void itCalculatesDuration() {
