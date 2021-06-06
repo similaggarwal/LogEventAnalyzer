@@ -33,7 +33,7 @@ public class LogAnalyzerDao {
             for(DBLog dbLog : dbLogList) {
                 statement.executeUpdate("INSERT INTO EventAnalysis VALUES('"+dbLog.getId()+"', "+dbLog.getDuration()+" , '"+dbLog.getType()+"' , '"+dbLog.getHost()+"' , '"+dbLog.isAlert()+"')");
             }
-            LOGGER.info("insert data into TABLE:EventAnalysis count {}",dbLogList.size());
+            LOGGER.info("Inserted {} records into EventAnalysis table ",dbLogList.size());
 
         } catch (Exception e) {
             LOGGER.error("Error Inserting Data in table", e);
@@ -56,9 +56,6 @@ public class LogAnalyzerDao {
                     "TYPE VARCHAR(100)," +
                     "HOST VARCHAR(100)," +
                     "ALERT VARCHAR(10))");
-            LOGGER.info("created TABLE EventAnalysis");
-
-
         } catch (Exception e) {
             LOGGER.error("Error creating Table EventAnalysis ", e);
         }
